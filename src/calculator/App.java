@@ -1,3 +1,5 @@
+package calculator;
+
 import java.util.Scanner;
 
 public class App {
@@ -15,6 +17,21 @@ public class App {
         char minus = sign.charAt(1);
         char multi = sign.charAt(2);
         char div = sign.charAt(3);
+        char operator = sc.next().charAt(0);
 
+        int result = 0;
+        if (operator == plus){
+            result = num1 + num2;
+        }
+        else if (operator == minus){
+            result = num1 - num2;
+        }
+        else if (operator == multi){
+            result = num1 * num2;
+        }
+        else if (operator == div){
+            result = num1 / num2;
+        }
+        System.out.println("결과: " + result);
     }
 }
