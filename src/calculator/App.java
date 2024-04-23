@@ -20,18 +20,19 @@ public class App {
         char operator = sc.next().charAt(0);
 
         int result = 0;
-        if (operator == plus){
+
+        //특정 문자열을 받았을 때 반복문 종료 그 전까지는 반복문을 이용한 계산
+
+        if (operator == plus) {
             result = num1 + num2;
-        }
-        else if (operator == minus){
+        } else if (operator == minus) {
             result = num1 - num2;
-        }
-        else if (operator == multi){
+        } else if (operator == multi) {
             result = num1 * num2;
-        }
-        else if (operator == div){
+        } else if (operator == div) {
             result = num1 / num2;
         }
         System.out.println("결과: " + result);
+
     }
 }
