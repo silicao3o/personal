@@ -4,26 +4,30 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        int[] memory = new int[10];
+        int count = 0;
+
         Scanner sc = new Scanner(System.in);
 
-        while (true) {
+        //while (true)이게 for(; ;)이거보다 클린 코드여서 무한루프를 사용해야하는 유지보수에는 while문이 적합함.
+        while(true){
             System.out.println("첫 번째 숫자를 입력하세요: ");
             int num1 = sc.nextInt(); // 첫번째 숫자 입력
             System.out.println("두 번째 숫자를 입력하세요: ");
             int num2 = sc.nextInt(); // 두번째 숫자 입력
 
             System.out.println("사칙연산 기호를 입력하세요: ");
-            String sign = "+-*/";
+            String sign = "+-*/"; // 사칙연산 기호를 문자열 배열에 저장
+            // String -> char 형변환하고 각 기호를 저장
             char plus = sign.charAt(0);
             char minus = sign.charAt(1);
             char multi = sign.charAt(2);
             char div = sign.charAt(3);
             char operator = sc.next().charAt(0);
             sc.nextLine();
-            int result = 0;
+            int result = 0; // 결과의 초기값
 
-            //특정 문자열을 받았을 때 반복문 종료 그 전까지는 반복문을 이용한 계산
-
+            //입력받은 기호에 따라서 계산
             if (operator == plus) {
                 result = num1 + num2;
             } else if (operator == minus) {
@@ -35,10 +39,14 @@ public class App {
             }
             System.out.println("결과: " + result);
 
+            //memory 배열 값에 result를 저장
+            memory[count] = result;
+            count++;
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String end = sc.nextLine();
-            if(end.equals("exit")) {
-               break;
+            if (end.equals("exit")) {
+                break; // exit 입력 시 종료
             }
         }
     }
