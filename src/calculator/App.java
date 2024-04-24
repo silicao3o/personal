@@ -42,7 +42,13 @@ public class App {
             //memory 배열 값에 result를 저장
             memory[count] = result;
             count++;
-
+            //저장된 index가 마지막(9)일 때, 순차적으로 결과값을 삭제하고 마지막 index에 저장
+            if(count > memory.length-1){
+                for (int i = 0; i < count; i++) {
+                    memory[i] = memory[i+1];
+                }
+                memory[memory.length-1] = result; //memory[9]에 새로운 result값 저장
+            }
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String end = sc.nextLine();
             if (end.equals("exit")) {
