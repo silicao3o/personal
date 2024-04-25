@@ -50,6 +50,14 @@ public class App {
                 memory.remove(0);
             }
 
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            String inquiry = sc.nextLine();
+            if(inquiry.equals("inquiry")){
+                // 필드가 거대해졌을 때 유지보수 면에서 수월함, 객체를 가지고 for문을 돌 때 향상된 for문이 적합함.
+                for(Integer number : memory) {
+                    System.out.println(number);
+                }
+            }
             //저장된 index가 마지막(9)일 때, 순차적으로 결과값을 삭제하고 마지막 index에 저장
             /*
             if(count > memory.length-1){
