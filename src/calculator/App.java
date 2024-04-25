@@ -1,12 +1,12 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        int[] memory = new int[10];
-        int count = 0;
-
+        ArrayList<Integer> memory = new ArrayList<Integer>();
+        //int count = 0;
         Scanner sc = new Scanner(System.in);
 
         //while (true)이게 for(; ;)이거보다 클린 코드여서 무한루프를 사용해야하는 유지보수에는 while문이 적합함.
@@ -40,15 +40,24 @@ public class App {
             System.out.println("결과: " + result);
 
             //memory 배열 값에 result를 저장
-            memory[count] = result;
-            count++;
+            memory.add(result);
+            //count++;
+
+            //remove를 입력 받았을 때 가장 먼저 저장된 연산 결과 삭제
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            String notRemove = sc.nextLine();
+            if(notRemove.equals("remove")){
+                memory.remove(0);
+            }
+
             //저장된 index가 마지막(9)일 때, 순차적으로 결과값을 삭제하고 마지막 index에 저장
+            /*
             if(count > memory.length-1){
                 for (int i = 0; i < count; i++) {
                     memory[i] = memory[i+1];
                 }
                 memory[memory.length-1] = result; //memory[9]에 새로운 result값 저장
-            }
+            }*/
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String end = sc.nextLine();
             if (end.equals("exit")) {
