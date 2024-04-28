@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Calculator {
     ArrayList<Integer> memory = new ArrayList<Integer>();
-    public ArrayList<Integer> resultArray (String[] args) {
+    public ArrayList<Integer> getMemory () {
         return memory;
     }
     public int calculate(int num1, int num2, char operator) {
