@@ -25,6 +25,7 @@ public class App {
             System.out.println("결과: " + result1);
             ArrayList<Integer> storage = calculator.getMemory();
             storage.add(result1);
+            calculator.setMemory(storage);
 
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             String notRemove = sc.nextLine();

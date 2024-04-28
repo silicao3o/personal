@@ -3,10 +3,7 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-    ArrayList<Integer> memory = new ArrayList<Integer>();
-    public ArrayList<Integer> getMemory () {
-        return memory;
-    }
+    private ArrayList<Integer> memory = new ArrayList<Integer>();
     public int calculate(int num1, int num2, char operator) {
         String sign = "+-*/";
         char plus = sign.charAt(0);
@@ -30,4 +27,13 @@ public class Calculator {
             throw new ErrorInputException("Invalid operator: " + operator);
         }
     }
+
+    public ArrayList<Integer> getMemory () {
+        return this.memory;
+    }
+    public void setMemory (ArrayList<Integer> memory) {
+        this.memory = memory;
+    }
+
+
 }
