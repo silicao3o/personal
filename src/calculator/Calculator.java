@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Calculator {
     private ArrayList<Integer> memory = new ArrayList<Integer>();
+
     public int calculate(int num1, int num2, char operator) {
         String sign = "+-*/";
         char plus = sign.charAt(0);
@@ -35,5 +36,7 @@ public class Calculator {
         this.memory = memory;
     }
 
-
+    public void removeResult () {
+        this.memory.remove(0);
+    }
 }
