@@ -3,6 +3,10 @@ package calculator;
 import java.util.ArrayList;
 
 public class ArithmeticCalculator extends Calculator {
+    AddOperator addOperator = new AddOperator();
+    SubtractOperator subtractOperator = new SubtractOperator();
+    MultiplyOperator multiplyOperator = new MultiplyOperator();
+    DivideOperator divideOperator = new DivideOperator();
     public ArithmeticCalculator() {
         super();
     }
@@ -14,16 +18,16 @@ public class ArithmeticCalculator extends Calculator {
         char div = sign.charAt(3);
 
         if (operator == plus) {
-            return num1 + num2;
+            return addOperator.operate(num1, num2);
         } else if (operator == minus) {
-            return  num1 - num2;
+            return subtractOperator.operate(num1, num2);
         } else if (operator == multi) {
-            return num1 * num2;
+            return multiplyOperator.operate(num1, num2);
         } else if (operator == div) {
             if (num2 == 0) {
                 throw new ErrorInputException("Division by zero");
             }
-            return num1 / num2;
+            return divideOperator.operate(num1, num2);
         }
         else {
             throw new ErrorInputException("Invalid operator: " + operator);
