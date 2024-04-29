@@ -7,30 +7,32 @@ public class ArithmeticCalculator extends Calculator {
     SubtractOperator subtractOperator = new SubtractOperator();
     MultiplyOperator multiplyOperator = new MultiplyOperator();
     DivideOperator divideOperator = new DivideOperator();
+    ModOperator modOperator = new ModOperator();
+    ArrayList<Cooperation> operateList = new ArrayList();
+
     public ArithmeticCalculator() {
         super();
     }
     public int calculate(int num1, int num2, char operator) {
-        String sign = "+-*/";
-        char plus = sign.charAt(0);
-        char minus = sign.charAt(1);
-        char multi = sign.charAt(2);
-        char div = sign.charAt(3);
+        String sign = "+-*/%";
+        String changeOperator = String.valueOf(operator);
+        sign.contains(changeOperator);
 
-        if (operator == plus) {
-            return addOperator.operate(num1, num2);
-        } else if (operator == minus) {
-            return subtractOperator.operate(num1, num2);
-        } else if (operator == multi) {
-            return multiplyOperator.operate(num1, num2);
-        } else if (operator == div) {
-            if (num2 == 0) {
-                throw new ErrorInputException("Division by zero");
-            }
-            return divideOperator.operate(num1, num2);
+        operateList.add(addOperator);
+        operateList.add(subtractOperator);
+        operateList.add(multiplyOperator);
+        operateList.add(divideOperator);
+        operateList.add(modOperator);
+
+        if (!sign.contains(changeOperator)) {
+            throw new ErrorInputException("Invalid operator: " + operator);
         }
         else {
-            throw new ErrorInputException("Invalid operator: " + operator);
+            int operateResult = 0;
+            for (int i = 0; i < num1; i++) {
+                operateResult += operateList.get(i).operate(operator, num1, num2);
+            }
+            return operateResult;
         }
     }
 
