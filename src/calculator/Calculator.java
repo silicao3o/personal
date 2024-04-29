@@ -3,8 +3,10 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-    private ArrayList<Integer> memory = new ArrayList<Integer>();
-
+    private ArrayList<Integer> memory;
+    public Calculator(ArrayList<Integer> memory) {
+        this.memory = memory;
+    }
     public int calculate(int num1, int num2, char operator) {
         String sign = "+-*/";
         char plus = sign.charAt(0);
