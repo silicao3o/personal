@@ -35,10 +35,7 @@ public class App {
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             String inquiry = sc.nextLine();
             if(inquiry.equals("inquiry")){
-
-                for(Integer number : storage) {
-                    System.out.println(number);
-                }
+                calculator.inquiryResults();
             }
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String end = sc.nextLine();

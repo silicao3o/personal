@@ -39,4 +39,9 @@ public class Calculator {
     public void removeResult () {
         this.memory.remove(0);
     }
+    public void inquiryResults(){
+        for(Integer number : this.memory) {
+            System.out.println(number);
+        }
+    }
 }
