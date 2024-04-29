@@ -3,9 +3,13 @@ package calculator;
 import java.util.ArrayList;
 
 public class Calculator {
+    static final double PI = 3.141592;
+    private ArrayList<Double> widthCircle;
     private ArrayList<Integer> memory;
-    public Calculator(ArrayList<Integer> memory) {
+
+    public Calculator(ArrayList<Integer> memory, ArrayList<Double> widthCircle) {
         this.memory = memory;
+        this.widthCircle = widthCircle;
     }
     public int calculate(int num1, int num2, char operator) {
         String sign = "+-*/";
@@ -43,6 +47,22 @@ public class Calculator {
     }
     public void inquiryResults(){
         for(Integer number : this.memory) {
+            System.out.println(number);
+        }
+    }
+
+    public double calculateCircleArea(int radius){
+        return radius * PI * radius;
+    }
+
+    public ArrayList<Double> getWidthCircle() {
+        return this.widthCircle;
+    }
+    public void setWidthCircle(ArrayList<Double> widthCircle) {
+        this.widthCircle = widthCircle;
+    }
+    public void inquiryCircle(){
+        for(Double number : this.widthCircle) {
             System.out.println(number);
         }
     }
