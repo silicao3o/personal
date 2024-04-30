@@ -3,12 +3,12 @@ package calculator;
 import java.util.ArrayList;
 
 public class ArithmeticCalculator extends Calculator {
-    AddOperator addOperator = new AddOperator();
-    SubtractOperator subtractOperator = new SubtractOperator();
-    MultiplyOperator multiplyOperator = new MultiplyOperator();
-    DivideOperator divideOperator = new DivideOperator();
-    ModOperator modOperator = new ModOperator();
-    ArrayList<Cooperation> operateList = new ArrayList();
+    private AddOperator addOperator = new AddOperator();
+    private SubtractOperator subtractOperator = new SubtractOperator();
+    private MultiplyOperator multiplyOperator = new MultiplyOperator();
+    private DivideOperator divideOperator = new DivideOperator();
+    private ModOperator modOperator = new ModOperator();
+    private ArrayList<Cooperation> operateList = new ArrayList();
 
     public ArithmeticCalculator() {
         super();
