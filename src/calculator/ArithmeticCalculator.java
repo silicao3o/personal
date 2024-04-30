@@ -14,6 +14,9 @@ public class ArithmeticCalculator extends Calculator {
         super();
     }
     public int calculate(int num1, int num2, char operator) {
+        if(num1 < 0 || num2 < 0){
+            throw new ErrorInputException("Error: 양의 정수를 입력하세요.");
+        }
         String sign = "+-*/%";
         String changeOperator = String.valueOf(operator);
         sign.contains(changeOperator);
