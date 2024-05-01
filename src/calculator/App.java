@@ -4,6 +4,30 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
+    private static double circle(int radius, CircleCalculator calc){
+        double resultCircle = calc.calculateCircleArea(radius);
+        ArrayList<Double> circleStorage = calc.getWidthCircle();
+
+        circleStorage.add(resultCircle);
+        calc.setWidthCircle(circleStorage);
+        calc.inquiryCircle();
+
+        return resultCircle;
+    }
+
+    private static double arithemtic (int num1, int num2, ArithmeticCalculator calc2, Scanner sc){
+        System.out.println("사칙연산 기호를 입력하세요: ");
+        char operator = sc.next().charAt(0);
+        sc.nextLine();
+
+        double result1 = calc2.calculate(num1, num2, operator);
+        ArrayList<Double> storage = calc2.getMemory();
+
+        storage.add(result1);
+        calc2.setMemory(storage);
+
+        return result1;
+    }
     public static void main(String[] args) {
         CircleCalculator calc = new CircleCalculator();
         ArithmeticCalculator calc2 = new ArithmeticCalculator();
@@ -15,14 +39,9 @@ public class App {
             String choice = sc.nextLine();
             if(choice.equals("circle")){
                 System.out.println("반지름을 입력하세요: ");
+                /* 원의 넓이 */
                 int radius = sc.nextInt(); // 원의 반지름 입력
-                double resultCircle = calc.calculateCircleArea(radius);
-                System.out.println("결과: " + resultCircle);
-
-                ArrayList<Double> circleStorage = calc.getWidthCircle();
-                circleStorage.add(resultCircle);
-                calc.setWidthCircle(circleStorage);
-                calc.inquiryCircle();
+                System.out.println("결과: " + circle(radius, calc));
             }
             else {
                 System.out.println("첫 번째 숫자를 입력하세요: ");
@@ -30,15 +49,7 @@ public class App {
                 System.out.println("두 번째 숫자를 입력하세요: ");
                 int num2 = sc.nextInt(); // 두번째 숫자 입력
 
-                System.out.println("사칙연산 기호를 입력하세요: ");
-                char operator = sc.next().charAt(0);
-                sc.nextLine();
-
-                double result1 = calc2.calculate(num1, num2, operator);
-                System.out.println("결과: " + result1);
-                ArrayList<Double> storage = calc2.getMemory();
-                storage.add(result1);
-                calc2.setMemory(storage);
+                System.out.println("결과: " + arithemtic(num1, num2, calc2, sc));
 
                 System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
                 String notRemove = sc.nextLine();

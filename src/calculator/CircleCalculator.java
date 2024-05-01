@@ -6,6 +6,7 @@ public class CircleCalculator extends Calculator {
     public CircleCalculator() {
         super();
     }
+
     static final double PI = 3.141592;
     public double calculateCircleArea(int radius){
         return radius * PI * radius;
